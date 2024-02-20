@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Gradient Shadow</title>
+    <style>
+        *{
+            box-sizing: border-box; /*if padding is added to div or any html element then width wont change*/
+            
+        }
+        body{
+            background-color: black;
+        }
+
+        #box p {
+            font-size: 23px; 
+            /* Adjusted font size for smaller screens */
+        } 
+
+        #box{
+            width: 92%;
+            height: 530px;
+            align-items: center;
+            background: rgb(185, 181, 181);
+            position: relative;  /* we want to add other elememts inside and their position will be absolute. so we want them to not go beyond/outside div*/
+            /* margin: 40px;
+            margin-top: 80px; */
+            padding-top: 80px;
+            padding: 30px;
+            color: black;
+            font-style: italic;
+            border-radius: 30px;
+            margin: 5% auto;
+        }
+
+        #box::before, 
+        #box::after{
+            content: "";
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: linear-gradient(45deg,  blue,green, aqua, goldenrod, red, purple, teal, yellow , orange, violet, pink);
+            position: absolute;
+            background-size: 900px;
+            top:-2px;
+            left: -2px;
+            z-index: -1;
+            animation: animated-shadow 10s linear infinite alternate;
+            border-radius: 30px;
+            
+        }
+
+        /* bring blurness */
+        
+        #box::after{
+            filter: blur(30px);
+        }
+
+
+        @keyframes animated-shadow {
+            0%{
+                background-position: 0 0;
+
+            }
+            50%{
+                background-position: 100% 0;
+                
+            }
+            100%{
+                background-position: 0 0;
+            }
+            
+        }
+
+
+
+        @media (max-width: 600px) {
+            #box {
+            width: 90%;
+            height: 80%;
+            margin: 5% auto;
+            
+        }
+
+        
+
+        #box p { 
+             font-size: 16px; 
+            /* Adjusted font size for smaller screens */
+        } 
+    } 
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>Dear Guests, <br> <br> We are thrilled to extend our warmest invitation to you for the grand inauguration ceremony of Coffee Shop Brew Haven Café. 
+            This event marks a significant milestone for us, and we would be honored to have you join us in celebrating this special occasion.
+            As we prepare to unveil our newest venture to the community, we envision an evening filled with excitement, camaraderie, and, of course, exceptional coffee.
+            <br>Immerse yourself in the vibrant ambiance of live music performances throughout the evening. Sit back, relax, and enjoy the captivating melodies as you sip on your favorite brew and soak in the celebratory atmosphere.
+            <br>We sincerely hope that you will join us as we embark on this journey to create memorable coffee experiences and foster a sense of community in our beloved neighborhood. Your presence would mean the world to us as we celebrate this exciting new chapter for Brew Haven Café.
+            <br> <br>Date: 17th February <br>
+            Time: 7pm  <br>
+            Location:Near Almond Plaza,Gandhi Nagar <br><br></p>
+    </div>
+</body>
+</html>
